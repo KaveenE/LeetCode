@@ -16,7 +16,7 @@ Optimized: O(n) but O(1) amortized
 - When reversedStack is empty for dequeue, simply do naiive's first 2 steps
 */
 
-class Id232 {
+public class Id232 {
 	private Deque<Integer> stack;
 	private Deque<Integer> reversedStack;
 

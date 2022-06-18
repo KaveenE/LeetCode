@@ -73,12 +73,12 @@ public class SlidingWindow {
 		return result;
 	}
 
-	public int[] slidingWindowPartialTemplate_number(int[] arr, int range) {
+	public int[] slidingWindowPartialTemplate_number(int[] arr, int windowSize) {
 		for(int currIdx=0; currIdx<=arr.length-1; currIdx++) {
 			swap(arr,currIdx,arr[currIdx]-1);
 		}
 	
-		if (arr == null || range <= 0) {
+		if (arr == null || windowSize <= 0) {
 			return new int[0];
 		}
 
@@ -87,13 +87,13 @@ public class SlidingWindow {
 
 		// init collection<T> or just T to save the result (actual content) according to
 		// question.
-		int[] results = new int[arr.length - range + 1];
-		int resultIdx = 0;
+		List<Integer> results = new ArrayList<>();
 
 		for (int currIdx = 0; currIdx < arr.length; currIdx++) {
 			// remove numbers out of range
 			// currIdx-range+1 is the lowest possible index of window (ie head index)
-			while (!window.isEmpty() && window.peekFirst() < currIdx - range + 1) {
+			//Only if have FIXED window size
+			while (!window.isEmpty() && window.peekFirst() < currIdx - windowSize + 1) {
 				window.pollFirst();
 			}
 			//
@@ -101,11 +101,11 @@ public class SlidingWindow {
 			window.offerLast(currIdx);
 
 			// save / update the result for each window ONCE FIRST window forms
-			if (currIdx + 1 >= range) {
+			if (currIdx + 1 >= windowSize) {
 				// Your logic
 			}
 		}
-		return results;
+		return results.stream().mapToInt(x->x).toArray();
 	}
 	void swap(int[] arr, int i , int j) {}
 }

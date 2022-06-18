@@ -3,7 +3,7 @@ package medium;
 import java.util.ArrayDeque;
 import java.util.Deque;
 
-class Id150 {
+public class Id150 {
 	public int evalRPN(String[] tokens) {
 		Deque<Integer> stack = new ArrayDeque<>();
 		int operand1;
