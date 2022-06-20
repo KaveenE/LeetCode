@@ -74,10 +74,6 @@ public class SlidingWindow {
 	}
 
 	public int[] slidingWindowPartialTemplate_number(int[] arr, int windowSize) {
-		for(int currIdx=0; currIdx<=arr.length-1; currIdx++) {
-			swap(arr,currIdx,arr[currIdx]-1);
-		}
-	
 		if (arr == null || windowSize <= 0) {
 			return new int[0];
 		}
