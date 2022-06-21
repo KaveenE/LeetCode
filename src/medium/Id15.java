@@ -8,7 +8,7 @@ import java.util.Set;
 
 public class Id15 {
 	// Note the solution I'm using for 3Sum is actually an extension of my failed
-	// approach for 2 sum!
+	// approach for 2 sum! (Link: https://github.com/KaveenE/LeetCode/tree/main/src/easy/Id1)
 	// Why can it work here? My original approach for 2sum failed only cos they
 	// asked to return indices.
 	// Because of duplicates, the indice values were overwritten as I populated my
