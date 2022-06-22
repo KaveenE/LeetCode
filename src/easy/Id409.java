@@ -14,7 +14,7 @@ public class Id409 {
 		
 		//For longest palindrome, all even frequencies are needed.
 		//Odd frequencies will violate palindrome property so minus 1
-		//Howver, odd frequencies in the middle will not violate it so we can keep 1 odd frequency
+		//Howver, odd frequencies in the middle will not violate it so we can keep 1 odd frequency, ie I add 1 at the end
 		int summationEvenFrequencies = 0;
 		int summationOddFrequenciesButRemoveALetter = 0;
 		boolean oddLetters = false;
