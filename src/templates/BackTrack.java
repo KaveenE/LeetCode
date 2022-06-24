@@ -25,20 +25,20 @@ public class BackTrack {
 	 * 
 	 * 1) Passing a pointer,currIdx to know where we are in input
 	 * 	  -> Usually initialize idx=currIdx and passing as idx/idx+1 as a parameter
-	 *       to avoid DUPLICATES of other DFS PATHS (same combi, diff order) but still use element of input multiple times 
-	 *       / use element once
+	 *       AVOID DUPLICATES of other DFS PATHS (same combi, diff order) but still use element of input multiple times /
+	 *       OPTIONALLY use element of input ONCE for STATE
 	 *  	
-	 *  	NOTE: Typical to SORT input before dfs. 
-	 *  	Works in conjunction with idx=currIdx to avoid DUPLICATE ELEMENTS of input being stored in state
-	 *      -> Add if(i>currIdx && nums[currIdx] == nums[currIdx-1]) continue; at start of for loop
+	 *  	NOTE: SORT input before dfs. 
+	 *  	Works in conjunction with idx=currIdx to OPTIONALLY use element of input ONCE for STATE + handle duplicate states that may form from some parent node
+	 *      -> Add if(i>currIdx && nums[i] == nums[i-1]) continue; at start of for loop
 	 *       
 	 * 2) Passing boolean[] used  in place of idx=currIdx
 	 * 	  -> if(used[i]) continue; at start of for loop
-	 *       Use each element of input exactly once
+	 *       MUST use each element of input ONCE for STATE
 	 *       
-	 *    -> if(used[i] || i > 0 && nums[i] == nums[i-1] && !used[i - 1]) continue;
-	 *    	 Use each element of input exactly once + don't use unused duplicate elements
-
+	 *    -> if(used[i] || i > 0 && nums[i] == nums[i-1] && !used[i - 1]) continue; at start of for loop
+	 *    	 MUST use each element of input ONCE for STATE+ handle duplicate states that may form from some parent node
+			 **Input must be sorted(just like above) to handle the duplicate
 	 */
 	<T> void dfs(List<List<T>> result, List<T> state, List<T> input/*other common params*/) {
 		
