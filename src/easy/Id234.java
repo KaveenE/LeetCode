@@ -11,49 +11,42 @@ import requiredClassesForSome.ListNode;
  * ListNode next) { this.val = val; this.next = next; } }
  */
 public class Id234 {
-	
-	//O(1) space
-	public boolean isPalindrome1(ListNode head) {
-        //Edge input
-        if(head.next==null)return true;
-        
-        ListNode fast = head;
-        ListNode slow = head;
-        boolean oddLength = false;
-        
-        while(fast!=null && fast.next!=null){
-            slow = slow.next;
-            fast = fast.next.next;
-        }
-        
-        if(fast!=null){
-            oddLength = true;
-        }
-        
-        //Fast points to start of originalLL. 
-        //Slow points to start of reverseLL. Ie points to end of originallLL till midpt.
-        fast = head;
-        if(oddLength){
-            slow = reverseLL(slow.next);//To ignore the middle node if odd
-        }
-        else{
-            slow = reverseLL(slow);
-        }
-        
-        //Iterate from front and back of original LL
-        while(fast!=null && slow!=null){
-            if(fast.val!=slow.val){
-                return false;
-            }
-            fast=fast.next;
-            slow=slow.next;
-        }
-        
-        return true;
-        
-    }
-    
-	//O(n) space
+
+	// O(1) space
+	public boolean isPalindrome(ListNode head) {
+		if (head.next == null)
+			return true;
+
+		ListNode fast = head;
+		ListNode slow = head;
+
+		while (fast != null && fast.next != null) {
+			slow = slow.next;
+			fast = fast.next.next;
+		}
+
+		// Fast points to start of originalLL.
+		// Slow points to start of reverseLL. Ie points from end of originallLL to
+		// midpt.
+		fast = head;
+		slow = reverseLL(slow);
+
+		// Iterate from front and back of original LL
+		// Don't bother about even or odd length since the extra node won't have
+		// anbthing to compare to anw
+		while (fast != null && slow != null) {
+			if (fast.val != slow.val) {
+				return false;
+			}
+			fast = fast.next;
+			slow = slow.next;
+		}
+
+		return true;
+
+	}
+
+	// O(n) space
 	public boolean isPalindrome2(ListNode head) {
 		List<Integer> arrayList = new ArrayList<>();
 
@@ -74,21 +67,21 @@ public class Id234 {
 
 		return true;
 	}
-	
-	private ListNode reverseLL(ListNode head){
-        ListNode curr = head;
-        ListNode prev = null;
-        ListNode next = curr.next;
-        
-        while(curr!=null){
-            next = curr.next;
-            
-            //Reverse link -> update last seen node ie prev -> traverse LL
-            curr.next = prev;
-            prev = curr;
-            curr = next;
-        }
-        
-        return prev;
-    }
+
+	private ListNode reverseLL(ListNode head) {
+		ListNode curr = head;
+		ListNode prev = null;
+		ListNode next = curr.next;
+
+		while (curr != null) {
+			next = curr.next;
+
+			// Reverse link -> update last seen node ie prev -> traverse LL
+			curr.next = prev;
+			prev = curr;
+			curr = next;
+		}
+
+		return prev;
+	}
 }

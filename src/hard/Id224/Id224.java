@@ -35,8 +35,7 @@ public class Id224 {
 			}
 		}
 
-		if (number != 0)
-			result += sign * number;
+		result += sign * number;
 
 		return result;
 	}
