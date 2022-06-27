@@ -18,44 +18,47 @@ Optimized: O(n) but O(1) amortized
 
 public class Id232 {
 	private Deque<Integer> stack;
-	private Deque<Integer> reversedStack;
-
-	public Id232() {
-		stack = new ArrayDeque<>();
-		reversedStack = new ArrayDeque<>();
-	}
-
-	public void push(int x) {
-		stack.offerFirst(x);
-	}
-
-	public int pop() {
-		if (reversedStack.isEmpty()) {
-			while (!stack.isEmpty()) {
-				reversedStack.offerFirst(stack.pollFirst());
-			}
-		}
-
-		return reversedStack.pollFirst();
-	}
-
-	public int peek() {
-		if (reversedStack.isEmpty()) {
-			while (!stack.isEmpty()) {
-				reversedStack.offerFirst(stack.pollFirst());
-			}
-		}
-
-		return reversedStack.getFirst();
-	}
-
-	public boolean empty() {
-		return stack.isEmpty() && reversedStack.isEmpty();
-	}
+    private Deque<Integer> reversedStack;
+    
+    public Id232() {
+        stack = new ArrayDeque<>();
+        reversedStack = new ArrayDeque<>();
+    }
+    
+    public void push(int x) {
+        stack.offerLast(x);
+    }
+    
+    public int pop() {
+        if(reversedStack.isEmpty()) {
+            while(!stack.isEmpty()){
+                reversedStack.offerLast(stack.pollLast());
+            }
+        }
+        
+        return reversedStack.pollLast();
+    }
+    
+    public int peek() {
+        if(reversedStack.isEmpty()) {
+            while(!stack.isEmpty()){
+                reversedStack.offerLast(stack.pollLast());
+            }
+        }
+        
+        return reversedStack.getLast();
+    }
+    
+    public boolean empty() {
+        return stack.isEmpty() && reversedStack.isEmpty();
+    }
 }
 
 /**
- * Your MyQueue object will be instantiated and called as such: MyQueue obj =
- * new MyQueue(); obj.push(x); int param_2 = obj.pop(); int param_3 =
- * obj.peek(); boolean param_4 = obj.empty();
+ * Your MyQueue object will be instantiated and called as such:
+ * MyQueue obj = new MyQueue();
+ * obj.push(x);
+ * int param_2 = obj.pop();
+ * int param_3 = obj.peek();
+ * boolean param_4 = obj.empty();
  */

@@ -24,4 +24,8 @@ public class Id278 {
         return mid;
     }
 	
+	//dummy
+	boolean isBadVersion(int version) {
+		return true;
+	}
 }
