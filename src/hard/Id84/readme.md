@@ -25,7 +25,7 @@
 	- Right boundary of largest rectange is just **before** we see a rectangle smaller than complete rectangle
 	- init an array that will store the 1<sup>st</sup> index of rectange smaller than current rectange (for when we take it as complete rectangle)
 	 ```
-	for (int idx = 1; idx < height.length; idx++) {              
+	for (int idx = height.length-2; idx >= 0; idx++) {              
 		int firstIdxOfHeightSmallerThanCurr = idx + 1;
 		
 		while (firstIdxOfHeightSmallerThanCurr <= height.length-1 && height[firstIdxOfHeightSmallerThanCurr] >= height[idx]) {
