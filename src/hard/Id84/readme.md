@@ -60,10 +60,10 @@ int maxArea = 0;
 	}
 ``` 
  ```
-	for (int idx = 1; idx < height.length; idx++) {              
-		int firstIdxOfHeightSmallerThanCurr = idx - 1;
+	for (int idx = height.length-2; idx >= 0; idx--) {              
+		int firstIdxOfHeightSmallerThanCurr = idx + 1;
 		
-		while (firstIdxOfHeightSmallerThanCurr >= 0 && height[firstIdxOfHeightSmallerThanCurr] >= height[idx]) {
+		while (firstIdxOfHeightSmallerThanCurr <= height.length-1  && height[firstIdxOfHeightSmallerThanCurr] >= height[idx]) {
 			firstIdxOfHeightSmallerThanCurr = firstIdxOfHeightSmallerFromRight[firstIdxOfHeightSmallerThanCurr];
 		}
    		firstIdxOfHeightSmallerFromRight[idx] = firstIdxOfHeightSmallerThanCurr;              
