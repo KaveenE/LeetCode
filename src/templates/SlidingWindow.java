@@ -29,7 +29,7 @@ public class SlidingWindow {
 		// To know if we have scanned enough of source, s to contain target, t
 		int counter = 0;
 
-		// the length of the substring which match the target string. Not needed in every template
+		// some length to update usually when windon has scanned enuf to contain target.Not needed in every template
 		//int len = Integer.MAX_VALUE OR 0;
 
 		// scan source

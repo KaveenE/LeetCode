@@ -23,22 +23,26 @@ public class BackTrack {
 	
 	/* Other common params:
 	 * 
-	 * 1) Passing a pointer,currIdx to know where we are in input
-	 * 	  -> Usually initialize idx=currIdx and passing as idx/idx+1 as a parameter
+	 * 1) Passing a pointer,stackIdx to know where we are in input
+	 * 	  -> Usually initialize idx=stackIdx and passing as idx/idx+1 as a parameter
 	 *       AVOID DUPLICATES of other DFS PATHS (same combi, diff order) but still use element of input multiple times /
 	 *       OPTIONALLY use element of input ONCE for STATE
 	 *  	
 	 *  	NOTE: SORT input before dfs. 
-	 *  	Works in conjunction with idx=currIdx to OPTIONALLY use element of input ONCE for STATE + handle duplicate states that may form from some parent node
-	 *      -> Add if(i>currIdx && nums[i] == nums[i-1]) continue; at start of for loop
+	 *  	Works in conjunction with idx=stackIdx to OPTIONALLY use element of input ONCE for STATE + handle duplicate states that may form from some parent node
+	 *      -> Add if(i>stackIdx && nums[i] == nums[i-1]) continue; at start of for loop
 	 *       
-	 * 2) Passing boolean[] used  in place of idx=currIdx
+	 * 2) Passing boolean[] used  in place of idx=stackIdx
 	 * 	  -> if(used[i]) continue; at start of for loop
 	 *       MUST use each element of input ONCE for STATE
 	 *       
 	 *    -> if(used[i] || i > 0 && nums[i] == nums[i-1] && !used[i - 1]) continue; at start of for loop
 	 *    	 MUST use each element of input ONCE for STATE+ handle duplicate states that may form from some parent node
 			 **Input must be sorted(just like above) to handle the duplicate
+			
+	 * 3) Passing idx/ idx+1/ boolean[] used will create states that are
+	 * 	  -> Subsequence (with repeated values)/ subsequences/ subsets of inputs
+	 *    -> Note the terms such as subsequences/subsets used are based on the meaning from notes 
 	 */
 	<T> void dfs(List<List<T>> result, List<T> state, List<T> input/*other common params*/) {
 		
