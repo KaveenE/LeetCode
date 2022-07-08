@@ -1,17 +1,20 @@
-## Basic Calculator I ##
-`
-int result = 0;
-int number = 0;
-int sign = 1;
-`
-As you scan the string, maintain the 3 variables above + if character is
+```
+int number=0, polarity=0;
+char prevOperator='+';
+```
+**Idea**:
+1. Scan string
+	1. If *operand*, update `number`
+	2. If *operator*,
+		1. If `+` or `-`, push `number` multiplied by `polarity` into stack
+		2. If `*` or `/`, pop stack, perform operation with `number`, push that into stack
+		3. Update `number` to 0 since its used up in stack or for operation. Update `prevOperator` (initialized with `+`, imagine with example)
+2. Iterate stack and return sum
 
-1.	Number: Convert to number
-2.	Operator: Perform operation → reset `number=0` → Negate sign if operator is –
-    1.	We negate sign since operation is performed via `result += sign * number`
-3.	Bracket:
-    1.	Opener: This is a start of new expression so save (push) your `result/sign` in a stack and reset `result/sign` for this expression
-    2.	Closer: With the end of expression, perform operation → reset `number=0` 
-        → Pop the cached `result/sign` from stack and update the `result`
+**Rationale**:<br/>
+Will let us obtain a stack such as below to allow us you to convert do *step 2*
 
-After scanning, perform 1 last operation if last `number != 0`
+What if got **brackets**?<br/>
+- Apply algo recursively to the substring within bracket.
+- For optimization, pass in the index of substring you want to iterate from AND NOT substring itself
+- Recursive function should return the index at which substring ended, ie `)` and the result for that recursive function
