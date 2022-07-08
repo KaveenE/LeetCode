@@ -1,10 +1,10 @@
-package hard.Id224;
+package hard;
 
 import java.util.ArrayDeque;
 import java.util.Deque;
 import java.util.Set;
 
-public class Id224 {
+public class Id227 {
     private static final Set<Character> operators = Set.of('+','-','*','/');
     
 	public int calculate(String s) {
