@@ -58,10 +58,10 @@ public class Id224 {
             stack.offerLast(-number);
         }
         else if(prevOperator=='*'){
-            stack.offerLast(stack.pollFirst()*number);
+            stack.offerLast(stack.pollLast()*number);
         }
         else if(prevOperator=='/'){
-            stack.offerLast(stack.pollFirst()/number);
+            stack.offerLast(stack.pollLast()/number);
         }
     }
 
