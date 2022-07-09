@@ -11,7 +11,7 @@ public class Id5 {
 		int longestPalLen = 1;
 		int longestPalStartIdx = 0;
 
-		// Every letter by itself is a palindrome
+		// Base case 1: Every letter by itself is a palindrome
 		for (int idx = 0; idx <= palindrome.length - 1; idx++) {
 			palindrome[idx][idx] = true;
 		}
@@ -27,7 +27,7 @@ public class Id5 {
 					continue;
 
 				if (s.charAt(startLetter) == s.charAt(endLetter)) {
-					// endLetter shouldn't exceed startLetter hence the first condition
+					// Base case 2: 2 letter palindromes
 					if (endLetter - startLetter == 1 || palindrome[startLetter + 1][endLetter - 1]) {
 						palindrome[startLetter][endLetter] = true;
 
