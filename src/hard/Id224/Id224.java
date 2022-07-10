@@ -17,7 +17,7 @@ public class Id224 {
         Deque<Integer> stack = new ArrayDeque<>();
         
         int number=0;
-        char prevOperator='+';
+        char operatorOfNumber='+';
         char currChar='0';
         
         int i;
@@ -28,8 +28,8 @@ public class Id224 {
                 number = number*10 + currChar-'0';
             }
             else if(operators.contains(currChar)){
-                eval(prevOperator, number, stack);
-                prevOperator = currChar;
+                eval(operatorOfNumber, number, stack);
+                operatorOfNumber = currChar;
                 number = 0;
             }
             else if(currChar=='('){
@@ -40,12 +40,12 @@ public class Id224 {
             }
             else if(currChar==')'){
                 //Done with substring, compute and return result for substring (and idx to know whr we ended)
-                eval(prevOperator, number, stack);
+                eval(operatorOfNumber, number, stack);
                 return new int[] {i, stack.stream().mapToInt(x->x).sum()};
             }
         }
         
-        eval(prevOperator, number, stack);
+        eval(operatorOfNumber, number, stack);
         return new int[] {i, stack.stream().mapToInt(x->x).sum()};
       
     }
