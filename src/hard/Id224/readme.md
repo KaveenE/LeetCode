@@ -12,7 +12,8 @@ char operatorOfNumber='+';
 2. Iterate stack and return sum
 
 **Rationale**:<br/>
-Will let us obtain a stack such as below to allow us you to convert do *step 2*
+Will let us obtain a stack such as below to allow us you to  do *step 2*:<br/>
+`[1*2, 3\4*5, 6]`
 
 What if got **brackets**?<br/>
 - Apply algo recursively to the substring within bracket.
