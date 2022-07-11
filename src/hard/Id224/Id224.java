@@ -50,17 +50,17 @@ public class Id224 {
       
     }
     
-    public void eval(char prevOperator,int number, Deque<Integer> stack){
-        if(prevOperator=='+'){
+    public void eval(char operatorOfNumber,int number, Deque<Integer> stack){
+        if(operatorOfNumber=='+'){
             stack.offerLast(number);
         }
-        else if(prevOperator=='-'){
+        else if(operatorOfNumber=='-'){
             stack.offerLast(-number);
         }
-        else if(prevOperator=='*'){
+        else if(operatorOfNumber=='*'){
             stack.offerLast(stack.pollLast()*number);
         }
-        else if(prevOperator=='/'){
+        else if(operatorOfNumber=='/'){
             stack.offerLast(stack.pollLast()/number);
         }
     }
