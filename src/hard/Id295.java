@@ -21,10 +21,12 @@ class MedianFinder {
     }
     
     public void addNum(int num) {
+    	//Add to largerRight since now we become odd
         if(isEven){
 			smallerLeft.offer(num);
 			largerRight.offer(smallerLeft.poll());
 		}
+      //Add to smallerLeft since now we become even and thus need to keep size(smallerLeft)==size(largerRight)
 		else{
 			largerRight.offer(num);
 			smallerLeft.offer(largerRight.poll());
