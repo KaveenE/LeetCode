@@ -1,4 +1,4 @@
-package medium;
+package medium.Id621;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -62,25 +62,19 @@ public class Id621 {
         
         int cycles= n+1;
         int leastTime = 0;
-        int leastTime1 = 0;
         while(!pq.isEmpty()){
             List<Integer> tempList = new ArrayList<>();
             int i=1;
             while(i<=cycles && !pq.isEmpty()){
                 tempList.add(pq.poll());
-                i++;
             }
-            leastTime1 += i > cycles ? cycles:tempList.size();
-            //System.out.print(!pq.isEmpty()+"\n");
-            System.out.print(leastTime1+" ");
+
             for(Integer reducedFreq: tempList){
                 reducedFreq--;
                 if(reducedFreq!=0)pq.offer(reducedFreq);
             }
             
             leastTime += !pq.isEmpty() ? cycles:tempList.size();
-            System.out.print(leastTime+"\n");
-            //System.out.print(tempList+"\n\n");
         }
 
         return leastTime;
