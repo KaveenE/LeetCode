@@ -19,12 +19,9 @@ public class Id5 {
 		// Because of the 3rd comment in the 1st comment block, for the subproblem to
 		// solved first
 		// We have to count down for startLetter and up for endLetter
-		for (int startLetter = palindrome.length - 1; startLetter >= 0; startLetter--) {
-			for (int endLetter = startLetter; endLetter <= palindrome.length - 1; endLetter++) {
-				if (startLetter == palindrome.length - 1)
-					continue;
-				if (endLetter == 0)
-					continue;
+		for (int startLetter = palindrome.length - 2; startLetter >= 0; startLetter--) {
+			//endLetter has to be always infront of startLetter yo
+			for (int endLetter = startLetter + 1; endLetter <= palindrome.length - 1; endLetter++) {
 
 				if (s.charAt(startLetter) == s.charAt(endLetter)) {
 					// Base case 2: 2 letter palindromes
