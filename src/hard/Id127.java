@@ -135,7 +135,7 @@ public class Id127 {
 			for (char c = 'a'; c <= 'z'; c++) {
 				sb.setCharAt(newLetterIdx, c);
 				strForsb = sb.toString();
-				if (wordSet.contains(strForsb.toString()) && differsBy1Letter(strForsb, src))
+				if (wordSet.contains(strForsb))
 					neighbors.add(strForsb);
 			}
 			// Reset sb
