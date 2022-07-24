@@ -5,7 +5,7 @@ import java.util.List;
 import java.util.Set;
 
 public class BackTrack {
-
+	Object something;
 	public static void main(String[] args) {
 		Set<List<Integer>> l = new HashSet<>();
 		System.out.println(l);
@@ -44,24 +44,42 @@ public class BackTrack {
 	 * 	  -> Subsequence (with repeated values)/ subsequences/ subsets of inputs
 	 *    -> Note the terms such as subsequences/subsets used are based on the meaning from notes 
 	 */
-	<T> void dfs(List<List<T>> result, List<T> state, List<T> input/*other common params*/) {
+	<T> void backTrackWithState(List<List<T>> result, List<T> state, List<T> input/*other common params*/) {
 		
 		if(isSolution(state)) {
 			result.add(List.copyOf(state)); // Add copy since we mutate state itself
 			return;
 		}
 		if(cantBeSolution(state)) {
+			//Prune
 			return;
 		}
 		
 		for(int idx=0; idx<=input.size()-1; idx++) {
-			if(input.get(idx) is part of solution) {
-				state.add(input.get(idx)); //Add in dfs path
-				
-				dfs(result,state,input/*other common params*/);
-				//ATP, we have backtracked
-				
-				state.remove(state.size()-1);//Remove from dfs path since we backtracked
+			state.add(input.get(idx)); //Add in dfs path
+			backTrackWithState(result,state,input/*other common params*/);
+			//ATP, we have backtracked
+			state.remove(state.size()-1);//Remove from dfs path since we backtracked
+			
+		}
+	}
+	
+	<T> Object backTrackWithTarget(T target, List<T> input, int stackIdx) {
+
+		if (isSolution(target)) {
+			return something;
+		}
+		if (cantBeSolution(target)) {
+			//Prune
+			return something;
+		}
+
+		for (int idx = stackIdx; idx <= input.size() - 1; idx++) {
+			Object returnVal = backTrackWithTarget(add/deduct input[idx] from target, input, idx+1);
+			
+			if(returnVal passes cond) {
+				//Do some logic. 
+				//For DP problems using top-down, memoization is done here
 			}
 		}
 	}
@@ -69,8 +87,16 @@ public class BackTrack {
 	<T> boolean isSolution(List<T> state) {
 		return true;
 	}
-	
+
 	<T> boolean cantBeSolution(List<T> state) {
+		return true;
+	}
+	
+	<T> boolean isSolution(T state) {
+		return true;
+	}
+
+	<T> boolean cantBeSolution(T state) {
 		return true;
 	}
 
