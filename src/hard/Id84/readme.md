@@ -48,7 +48,7 @@ int maxArea = 0;
 - To remove the **O(n<sup>2</sup>)** bottleneck (1<sup>st</sup> 2 code blocks)
 	<br/>
 	
-	- We can do faster by reusing previous calculations
+	- We can do faster by reusing **previous calculations** OR **monotonicity**
  ```
 	for (int idx = 1; idx < height.length; idx++) {              
 		int firstIdxOfHeightSmallerThanCurr = idx - 1;
