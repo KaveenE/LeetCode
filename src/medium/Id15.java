@@ -31,7 +31,12 @@ public class Id15 {
 
 				if ((potentialComplement + target) == 0) {
 					triplets.add(Arrays.asList(nums[i], nums[left], nums[right]));
-					// incase other solns
+					
+					//Optimize soln (doesn't reduce complexity)
+					while(right-1>=left && nums[right]==nums[right-1])right--;
+                    			while(left+1<=right && nums[left]==nums[left+1])left++;
+					
+					// Check other solns
 					left++;
 					right--;
 				} else if ((potentialComplement + target) > 0) {
