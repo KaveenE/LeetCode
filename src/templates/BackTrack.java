@@ -78,7 +78,7 @@ public class BackTrack {
 			Object returnVal = backTrackWithTarget(add/deduct input[idx] from target, input, idx+1);
 			
 			if(returnVal passes cond) {
-				//Do some logic such as updating max/min
+				//Do some logic such as updating max/min or others
 				//For DP problems using top-down, memoization sometimes is done here
 			}
 		}
