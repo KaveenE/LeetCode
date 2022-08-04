@@ -78,8 +78,8 @@ public class BackTrack {
 			Object returnVal = backTrackWithTarget(add/deduct input[idx] from target, input, idx+1);
 			
 			if(returnVal passes cond) {
-				//Do some logic. 
-				//For DP problems using top-down, memoization is done here
+				//Do some logic such as updating max/min
+				//For DP problems using top-down, memoization sometimes is done here
 			}
 		}
 	}
