@@ -15,7 +15,7 @@ To find next lexigraphically larger perm
 	-> Swap arr[r] and arr[i]
       -> Reverse arr[i:]
 */
-class Id31 {
+public class Id31 {
     public void nextPermutation(int[] nums) {
         
         int rightMostIdxWithLargerRightNeighbor = -1;

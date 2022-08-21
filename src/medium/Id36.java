@@ -7,7 +7,7 @@ import java.util.Set;
 //colIdx/subSetRows and colIdx%subSetCols gives local idx of subset
 //subSetRows*(rowIdx/subSetRows)  and subSetCols*(rowIdx%subSetCols) gives offset from 0
 //the offset + local idx gives absolute idx respectively
-class Id36 {
+public class Id36 {
     public static final int THREE = 3;
     
     public boolean isValidSudoku(char[][] board) {
