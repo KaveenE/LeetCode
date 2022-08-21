@@ -12,7 +12,7 @@ Both  are space O(N), time O(N)
 
 In this 
 */
-class Id49 {
+public class Id49 {
     public List<List<String>> groupAnagrams(String[] strs) {
         Map<String, List<String>> sortedStringToRealString = new HashMap<>();
         
