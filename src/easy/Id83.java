@@ -2,6 +2,9 @@ package easy;
 
 import requiredClassesForSome.ListNode;
 
+import java.util.HashSet;
+import java.util.Set;
+
 /**
  * Definition for singly-linked list. public class ListNode { int val; ListNode
  * next; ListNode() {} ListNode(int val) { this.val = val; } ListNode(int val,
@@ -23,6 +26,28 @@ public class Id83 {
 				currentNode = currentNode.next;
 			}
 
+		}
+
+		return head;
+	}
+
+	//Works for unsorted and sorted too
+	public ListNode deleteDuplicates2(ListNode head)
+	{
+		Set<Integer> seen = new HashSet<>();
+		ListNode prev = null;
+		ListNode dummyHead = head;
+
+		while(dummyHead!=null){
+			if(seen.contains(dummyHead.val)){
+				prev.next = dummyHead.next;
+			}
+			else{
+				seen.add(dummyHead.val);
+				prev = dummyHead;
+			}
+
+			dummyHead = dummyHead.next;
 		}
 
 		return head;
