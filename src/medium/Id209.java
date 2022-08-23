@@ -5,9 +5,9 @@ import java.util.Map;
 
 public class Id209 {
     public int minSubArrayLen(int target, int[] nums) {
-        int windowSum=0;
         Map<Integer,Integer> windowMap = new HashMap<>();
         int start=0, end=0;
+        int windowSum=0; //analogous to count
         
         int len=Integer.MAX_VALUE;
         while(end<=nums.length-1){
