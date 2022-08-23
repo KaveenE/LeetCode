@@ -13,7 +13,7 @@ To find next lexigraphically larger perm
 	1ii. Else:
 	-> Find idx of rightmost elem, r s.t arr[r]>arr[i] && r>i
 	-> Swap arr[r] and arr[i]
-      -> Reverse arr[i:]
+        -> Swap elements from i+1 to arr.length-1
 */
 public class Id31 {
     public void nextPermutation(int[] nums) {
