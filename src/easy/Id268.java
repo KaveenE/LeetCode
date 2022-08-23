@@ -17,6 +17,6 @@ public class Id268 {
         //It may start from 0 or 1. 
         //Thus if loop maintains strictly ascending property
         //Number missing has to be nums.length or 0 respectively
-        return nums[nums.length-1]==nums.length ? 0 : nums.length;
+        return nums[0]==0 ? nums.length : 0;
     }
 }
