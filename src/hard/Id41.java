@@ -56,6 +56,7 @@ public class Id41 {
             if(numExists==Integer.MAX_VALUE)
                 continue;
             
+            //Actual marking itself
             numExists--;
             if(nums[numExists]>0)
                 nums[numExists]*=-1;
