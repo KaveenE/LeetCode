@@ -7,10 +7,6 @@ To check for anagrams, instead of the traditional way of
 1) caching frequency of letters in 1 string and decrementing the frequency in the other 
    to see if all reaches 0
 2) You can sort both strings and see if they are equal
-
-Both  are space O(N), time O(N)
-
-In this 
 */
 public class Id49 {
     public List<List<String>> groupAnagrams(String[] strs) {
