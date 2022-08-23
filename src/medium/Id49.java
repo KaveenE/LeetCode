@@ -4,7 +4,7 @@ import java.util.*;
 
 /*
 To check for anagrams, instead of the traditional way of 
-1) caching frequency of 1 string and decrementing the frequency in the other 
+1) caching frequency of letters in 1 string and decrementing the frequency in the other 
    to see if all reaches 0
 2) You can sort both strings and see if they are equal
 
