@@ -8,7 +8,7 @@ public class Id33 {
         while(right>left){
             mid = left + (right-left)/2;
 
-            //If both target and nums[mid] biggerEqual/smaller than pivot, they're on same side wrt pivot
+            //If both target and nums[mid] biggerEqual/smaller than pivot, they're on same side wrt pivot if array wasn't rotated
             //Normal binary search
             if((nums[mid]>=nums[0] && target>=nums[0]) ||
                     (nums[mid]<nums[0] && target<nums[0])){
@@ -20,7 +20,7 @@ public class Id33 {
 
             }
             //target and mid diff sides wrt pivot
-            //Reduce search space of target
+            //target on right side of pivot if array wasn't rotated
             else if(target>=nums[0]){
                 right=mid;
             }
