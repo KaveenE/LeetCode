@@ -14,7 +14,7 @@ public class Id134 {
                 /*
                 Proof why we can startStn = stn+1;
                 - The topupAndTravelCost for this stn outweighed gasAccumulatedOverall (ie topupAndTravelCost for all other stns)
-                - Travelling from the previous stns is thus pointless  
+                - Travelling from the previous stns is thus pointless (ie trying a O(n^2) soln with nested loop) 
                   since the topupAndTravelCost for this stn will still outweigh the now smaller gasAccumulatedOverall
                 */
                 startStn = stn+1;
