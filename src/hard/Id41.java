@@ -40,6 +40,7 @@ public class Id41 {
     1. Iterate array + Mark cells outside of this range with some appropriate value.
     2. Iterate array + Mark for integers to show they exist.
         i. This marking is quite novel. We mark s.t if nums[i]<0, (i+1) exists in nums
+        ii. I think I know how this marking was created! By "imagining" the array was sorted (idk how to phrase better)
     */
     public int firstMissingPositive(int[] nums) {
         
