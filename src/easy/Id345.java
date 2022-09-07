@@ -10,27 +10,30 @@ class Id345 {
                                    'u','U');
 
     public String reverseVowels(String s) {
-        int left = 0, right = 0;
+        int left = 0, right = s.length()-1;
         char leftChar, rightChar;
-
+        
         StringBuilder sb = new StringBuilder(s);
-
-        for(right=s.length()-1; right>left; right--){
-            rightChar = s.charAt(right);
-
-            if(vowels.contains(rightChar)){
-                leftChar = s.charAt(left);
-                while(right>left && !vowels.contains(leftChar)){
-                    left++;
-                    leftChar = s.charAt(left);
-                }
-
-                sb.setCharAt(left,rightChar);
-                sb.setCharAt(right,leftChar);
+        
+        while(left<right){
+            
+            if(!vowels.contains(s.charAt(left))){
+                sb.setCharAt(left,s.charAt(left));
                 left++;
             }
+            if(!vowels.contains(s.charAt(right))){
+                sb.setCharAt(right,s.charAt(right));
+                right--;
+            }
+            if(vowels.contains(s.charAt(left)) && vowels.contains(s.charAt(right)) ){
+                leftChar = s.charAt(left);
+                sb.setCharAt(left,s.charAt(right));
+                sb.setCharAt(right,leftChar);
+                
+                left++;right--;
+            }
         }
-
+        
         return sb.toString();
     }
 }
