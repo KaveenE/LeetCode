@@ -54,14 +54,13 @@ public class Id41 {
         for(int idx=0; idx<=nums.length-1; idx++){
             int numExists = Math.abs(nums[idx]);
             
-            if(numExists==Integer.MAX_VALUE)
+            //if out of range elem or already marked
+            if(numExists==Integer.MAX_VALUE || nums[numExists-1]<0)
                 continue;
             
             //Actual marking itself
-            numExists--;
-            if(nums[numExists]>0)
-                nums[numExists]*=-1;
-        }
+            nums[numExists-1]*=-1;
+        }}
         
         for(int idx=0; idx<=nums.length-1; idx++){
             if(nums[idx]>=0)
