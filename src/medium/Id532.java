@@ -12,9 +12,9 @@ public class Id532 {
         
         int pairs=0;
         for(Map.Entry<Integer,Integer> entry: freq.entrySet()){
+            //For difference of 0, we need 2 of the same number
             if(k==0){
-                //Difference of same number gets you zerooo
-                if(entry.getValue()>=2){
+                if(freq.containsKey(k+entry.getKey()) && freq.get(k+entry.getKey())>=2){
                     pairs++;
                 }
             }
