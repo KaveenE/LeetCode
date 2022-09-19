@@ -2,23 +2,26 @@ package medium;
 
 public class Id167 {
     public int[] twoSum(int[] nums, int target) {
-        //Pointers to start/end of array
-        int start= 0, end = nums.length-1;
-        int sum = 0;
-        while(end>=start){
-            sum = nums[start] + nums[end];
 
-            if(target == sum){
-                break; 
+        int left=0, right=nums.length-1;
+        int potentialTarget;
+        while(left<right){
+            potentialTarget = nums[left]+nums[right];
+            if(potentialTarget==target){
+                return new int[]{left+1,right+1};
             }
-            else if(target > sum){
-                start++;
+            else if(potentialTarget > target){
+                right--;
+                //for optimization
+                while(left<right && nums[right]==nums[right+1])right--;
             }
-            else if(sum > target){
-                end--;
+            else{
+                left++;
+                //for optimization
+                while(left<right && nums[left-1]==nums[left])left++;
             }
         }
 
-        return new int[] {start+1,end+1};
+        return null;
     }
 }
