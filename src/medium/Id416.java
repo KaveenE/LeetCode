@@ -38,8 +38,10 @@ public class Id416 {
 			return true;
 		else if (0 > target)
 			return false;
-
+		
+		boolean enteredLoop = false;
 		for (int i = currIdx; i <= nums.length - 1; i++) {
+			enteredLoop = true;
 			if (i > currIdx && nums[i] == nums[i - 1])
 				continue;
 			if (canSum(nums, target - nums[i], i + 1, memo)) {
@@ -48,7 +50,7 @@ public class Id416 {
 			}
 		}
 
-		memo.put(target, false);
+		if(enteredLoop)memo.put(target, false);
 		return false;
 	}
 
