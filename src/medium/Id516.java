@@ -1,13 +1,33 @@
 package medium;
 
-import java.util.Arrays;
-
 class Id516 {
     public int longestPalindromeSubseq(String s) {
-        int[][] palLength = new int[s.length()][s.length()];
-        for(int[] row :palLength) Arrays.fill(row, -1);
-        
-        return longestPalSubSeq(s, 0, s.length()-1, palLength);
+
+        /* Pre-processing. Define basic cases. */
+        int[][] longestPalLength = new int[s.length()][s.length()];
+
+        for(int row=0; row<=longestPalLength.length-1; row++){
+            longestPalLength[row][row]=1;
+        }
+
+        for(int offsetFromStart=1; offsetFromStart<=s.length()-1; offsetFromStart++){
+            for(int start=0; start+offsetFromStart<=s.length()-1; start++){
+                int end = start + offsetFromStart;
+                if(s.charAt(start) == s.charAt(end)){
+                    longestPalLength[start][end] = 2 + longestPalLength[start+1][end-1];
+                }
+                else{
+                    longestPalLength[start][end] = Math.max(longestPalLength[start+1][end], longestPalLength[start][end-1]);
+                }
+            }
+        }
+
+        return longestPalLength[0][s.length()-1];
+
+//        int[][] palLength = new int[s.length()][s.length()];
+//        for(int[] row :palLength) Arrays.fill(row, -1);
+//
+//        return longestPalSubSeq(s, 0, s.length()-1, palLength);
     }
     
     public int longestPalSubSeq(String s, int start, int end, int[][] palLength){
