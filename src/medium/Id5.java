@@ -1,7 +1,78 @@
 package medium;
 
 public class Id5 {
+	class Pair {
+		private int longestPalStartIdx =0;
+		private int longestPalLen = 1;
+	}
+	//Converted to bottom up from my top-down
 	public String longestPalindrome(String s) {
+		int n = s.length();
+		int[][] longestPalSubstrLen = new int[n+1][n+1];
+
+		for(int i=0; i<=longestPalSubstrLen.length-1; i++)
+			longestPalSubstrLen[i][i]=1;
+
+		int longestPalStartIdx =0;
+		int longestPalLen = 1;
+		for (int start = n - 1; start >= 0; start--) {
+			for (int end = start+1; end <= n-1; end++) {
+				if(s.charAt(start) == s.charAt(end)){
+					if(end-start-1 == longestPalSubstrLen[start + 1][end - 1]){
+						longestPalSubstrLen[start][end]=2+end-start-1;
+					}
+					else{
+						longestPalSubstrLen[start][end]=Math.max(longestPalSubstrLen[start+1][end],longestPalSubstrLen[start][end+1]);
+					}
+
+					if(longestPalSubstrLen[start][end]>longestPalLen){
+						longestPalLen=longestPalSubstrLen[start][end];
+						longestPalStartIdx = start;
+					}
+
+				}
+			}
+		}
+
+		return s.substring(longestPalStartIdx, longestPalStartIdx + longestPalLen);
+	}
+
+	public int longestPalindromeRec(String s, int start, int end, Integer[][] palLength, Pair pair){
+		if(start>end){
+			return 0;
+		}
+		if(start==end){
+			return 1;
+		}
+
+		if(palLength[start][end]!=null)return palLength[start][end];
+
+		if(s.charAt(start)==s.charAt(end)){
+			int remainingLen = end-start-1;
+			if(remainingLen == longestPalindromeRec(s, start+1, end-1, palLength, pair)) {
+				palLength[start][end] = 2 + remainingLen;
+
+				if(palLength[start][end]>pair.longestPalLen){
+					pair.longestPalLen=palLength[start][end];
+					pair.longestPalStartIdx=start;
+				}
+
+				return palLength[start][end];
+			}
+		}
+
+
+		int longestPalSubstrLengthAfterStart = longestPalindromeRec(s, start+1, end, palLength, pair);
+		int longestPalSubstrLengthBeforeEnd  = longestPalindromeRec(s, start, end-1, palLength,  pair);
+		palLength[start][end] = Math.max(longestPalSubstrLengthAfterStart,longestPalSubstrLengthBeforeEnd);
+
+		if(palLength[start][end]>pair.longestPalLen){
+			pair.longestPalLen=palLength[start][end];
+			pair.longestPalStartIdx=start;
+		}
+		return palLength[start][end];
+	}
+	public String longestPalindromeFromLC(String s) {
 		// palindrome[startLetter][endLetter]=true implies s[startLetter]..s[endLetter]
 		// is a palindrome
 		// Rmb that palindrome[startLetter][endLetter]=true implies
