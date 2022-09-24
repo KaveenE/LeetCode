@@ -10,9 +10,8 @@ class Id516 {
             longestPalLength[row][row]=1;
         }
 
-        for(int offsetFromStart=1; offsetFromStart<=s.length()-1; offsetFromStart++){
-            for(int start=0; start+offsetFromStart<=s.length()-1; start++){
-                int end = start + offsetFromStart;
+        for(int start=s.length()-1; start>=0; start--){
+            for(int end=start+1; end<=s.length()-1; end++){
                 if(s.charAt(start) == s.charAt(end)){
                     longestPalLength[start][end] = 2 + longestPalLength[start+1][end-1];
                 }
