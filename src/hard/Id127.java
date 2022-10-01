@@ -75,8 +75,8 @@ public class Id127 {
 //    }
 	
 	//Faster
-	//Instead of wasting n^2*m on constructing graph, construct neighbors of a vertex on the fly taking O(m^2)
-	//Complexity = O(V+E) = O(n+m^2)
+	//Instead of wasting n^2*m on constructing graph, construct neighbors of a vertex on the fly taking O(m)
+	//Complexity = O(V+E) = O(n+mm)
 	public int ladderLength(String beginWord, String endWord, List<String> wordList) {
 
 		Set<String> wordSet = wordList.stream().collect(Collectors.toSet());
