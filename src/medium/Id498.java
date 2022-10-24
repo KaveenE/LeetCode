@@ -1,13 +1,11 @@
 package medium;/*
 -Diagonal elements have same (colIdx+rowIdx)
     -If even, moving up+right
+        - if there's available row up and col to right -> move up + right
+        - else see what is not available and move accordingly
     -If odd, moving down+left
--4 cases when moving
-    -got row, got col
-    -got row, no col
-    -no row, got col
-    -no row, no col
-
+        - if there's available row down and col to left -> move down + left
+        - else see what is not available and move accordingly
 */
 
 import java.util.ArrayList;
@@ -20,7 +18,7 @@ class Id498 {
         int col=0, row=0;
         int colEnd=mat[0].length-1, rowEnd=mat.length-1;
         
-        while(diagOrder.size() < mat.length*mat[0].length){
+       while(diagOrder.size() < mat.length*mat[0].length){
             diagOrder.add(mat[row][col]);
             
             //Moving up+right
@@ -28,11 +26,11 @@ class Id498 {
                 if((row-1>=0 && col+1<=colEnd)){
                     row--;
                     col++;
-                } else if(col+1<=colEnd){
-                    col++;
+                } else if(col+1>colEnd){
+                    row++;
                 }
                 else{ //for 2 cases
-                    row++;
+                    col++;
                 }
             }
             //Move down+left
@@ -40,11 +38,11 @@ class Id498 {
                 if((row+1<=rowEnd && col-1>=0)){
                     col--;
                     row++;
-                } else if(row+1<=rowEnd){
-                    row++;
+                } else if(row+1>rowEnd){
+                    col++;
                 }
                 else{ //for 2 cases
-                    col++;
+                    row++;
                 }
             }
         }
